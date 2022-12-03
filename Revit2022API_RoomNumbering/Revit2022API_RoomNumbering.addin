@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+	<AddIn Type="Command">
+		<Assembly>"C:\PROG\App\DLL\Revit2022API_RoomNumbering.dll"</Assembly>
+		<AddInId>8C296B4E-E46D-4C4C-904E-F44B7A5C738B</AddInId>
+		<FullClassName>Revit2022API_RoomNumbering.Main</FullClassName>
+		<VendorId>ADSK</VendorId>
+		<Text>Нумерация комнат </Text>
+	</AddIn>
+</RevitAddIns>
+
+
+

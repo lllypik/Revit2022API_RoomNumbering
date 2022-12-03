@@ -1,0 +1,102 @@
+﻿<Window x:Class="Revit2022API_RoomNumbering.MainView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Revit2022API_RoomNumbering"
+             mc:Ignorable="d" 
+             Height="460" Width="400"
+             MinWidth="350"
+             MinHeight="310"
+             Title="Нумерация помещений"
+             Padding="5">
+    <StackPanel>
+
+        <GroupBox Header="Запрашиваемые данные"
+                  Margin="5"
+                  Padding="5"
+                  BorderThickness="2"
+                  BorderBrush="#FF9C9FA8">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Label Content="Введите префикс номера помещения"
+                       Margin="3"
+                       Grid.Row="0"/>
+
+                <TextBox Text="{Binding Prefix}"
+                         Margin="5"
+                         Padding="5"
+                         Grid.Row="1"/>
+
+                <Label Content="Задайте начальное значение (целое число)"
+                       Margin="3"
+                       Grid.Row="2"/>
+
+                <TextBox Text="{Binding NumberBeginValue}"
+                         Margin="5"
+                         Padding="5"
+                         Grid.Row="3"/>
+
+                <Label Content="Выберите уровень для нумерации"
+                       Margin="3"
+                       Grid.Row="4"/>
+
+                <ComboBox ItemsSource="{Binding Levels}"
+                          SelectedValue="{Binding SelectedLevel}"
+                          DisplayMemberPath="Name"
+                          Margin="5"
+                          Padding="5"
+                          Grid.Row="5"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Действия"
+                  Margin="5"
+                  Padding="5"
+                  BorderThickness="2"
+                  BorderBrush="#FF9C9FA8">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                
+                <Button Content="Пронумеровать все помещения сквозной нумерацией"
+                Command="{Binding NumberingAll}"
+                Margin="10"
+                Padding="5"
+                        Grid.Row="0"/>
+
+                <Button Content="Пронумеровать помещения на выделенном уровне"
+                Command="{Binding NumberingOnSelectedLevel}"
+                Margin="5"
+                Padding="5"
+                        Grid.Row="1"/>
+
+                <Button Content="Создать помещения на выбранном уровне"
+                Command="{Binding CreateRoom}"
+                Margin="5"
+                Padding="5"
+                        Grid.Row="2"/>
+
+            </Grid>
+        </GroupBox>
+
+
+
+    </StackPanel>
+</Window>
